@@ -12,16 +12,16 @@ First, install GLPK. For Homebrew, use:
 brew install glpk
 ```
 
-For Fedora, use:
-
-```sh
-dnf install glpk-devel
-```
-
-And for Ubuntu, use:
+For Ubuntu, use:
 
 ```sh
 sudo apt-get install libglpk40
+```
+
+And for Fedora, use:
+
+```sh
+sudo dnf install glpk
 ```
 
 Then add this line to your application’s Gemfile:
