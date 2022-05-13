@@ -12,6 +12,12 @@ First, install GLPK. For Homebrew, use:
 brew install glpk
 ```
 
+For Fedora, use:
+
+```sh
+dnf install glpk-devel
+```
+
 And for Ubuntu, use:
 
 ```sh
