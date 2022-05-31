@@ -135,6 +135,10 @@ module Glpk
 
       status = FFI::RET_CODE[ret_code] || FFI::SOLUTION_STATUS[FFI.glp_mip_status(model)]
 
+      if status == :root_lp_optimum
+        status = FFI::SOLUTION_STATUS[FFI.glp_get_status(model)]
+      end
+
       {
         status: status,
         obj_val: FFI.glp_mip_obj_val(model),
