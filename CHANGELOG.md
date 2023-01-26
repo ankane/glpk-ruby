@@ -1,4 +1,4 @@
-## 0.1.1 (unreleased)
+## 0.2.0 (2023-01-25)
 
 - Improved MIP status when LP fails
 
