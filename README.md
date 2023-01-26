@@ -2,6 +2,8 @@
 
 [GLPK](https://www.gnu.org/software/glpk/) - the GNU linear programming kit - for Ruby
 
+:fire: Check out [Opt](https://github.com/ankane/opt) for a high-level interface
+
 [![Build Status](https://github.com/ankane/glpk-ruby/workflows/build/badge.svg?branch=master)](https://github.com/ankane/glpk-ruby/actions)
 
 ## Installation
