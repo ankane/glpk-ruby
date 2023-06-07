@@ -2,7 +2,7 @@ module Glpk
   class Problem
     def initialize
       @model = FFI.glp_create_prob
-      ObjectSpace.define_finalizer(self, self.class.finalize(@model))
+      ObjectSpace.define_finalizer(@model, self.class.finalize(@model.to_i))
     end
 
     def load_problem(obj_dir:, obj_coef:, mat_ia:, mat_ja:, mat_ar:, col_kind:, col_lower:, col_upper:, row_lower:, row_upper:)
@@ -73,9 +73,9 @@ module Glpk
       end
     end
 
-    def self.finalize(model)
+    def self.finalize(addr)
       # must use proc instead of stabby lambda
-      proc { FFI.glp_delete_prob(model) }
+      proc { FFI.glp_delete_prob(addr) }
     end
 
     private

@@ -83,4 +83,10 @@ class GlpkTest < Minitest::Test
     res = model.solve(time_limit: 0.000001)
     assert_equal :time_limit_reached, res[:status]
   end
+
+  def test_copy
+    model = Glpk.read_lp("test/support/test.lp")
+    model.dup
+    model.clone
+  end
 end
