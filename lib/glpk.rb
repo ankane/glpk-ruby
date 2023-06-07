@@ -16,7 +16,11 @@ module Glpk
       # TODO test
       ["glpk.dll"]
     elsif RbConfig::CONFIG["host_os"] =~ /darwin/i
-      ["libglpk.dylib"]
+      if RbConfig::CONFIG["host_cpu"] =~ /arm|aarch64/i
+        ["libglpk.dylib", "/opt/homebrew/lib/libglpk.dylib"]
+      else
+        ["libglpk.dylib"]
+      end
     else
       ["libglpk.so", "libglpk.so.40"]
     end
