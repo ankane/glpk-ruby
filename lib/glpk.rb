@@ -2,8 +2,8 @@
 require "fiddle/import"
 
 # modules
-require "glpk/problem"
-require "glpk/version"
+require_relative "glpk/problem"
+require_relative "glpk/version"
 
 module Glpk
   class Error < StandardError; end
