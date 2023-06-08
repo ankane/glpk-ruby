@@ -76,6 +76,12 @@ problem = Glpk.read_lp("hello.lp")
 problem = Glpk.read_mps("hello.mps")
 ```
 
+Free the problem (only required in multi-threaded environments) [unreleased]
+
+```ruby
+problem.free
+```
+
 ## Reference
 
 Set the message level
