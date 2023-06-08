@@ -89,4 +89,25 @@ class GlpkTest < Minitest::Test
     model.dup
     model.clone
   end
+
+  def test_free
+    model = Glpk.read_lp("test/support/test.lp")
+    model.free
+    error = assert_raises(Glpk::Error) do
+      model.solve
+    end
+    assert_equal "Model already freed", error.message
+  end
+
+  def test_threads
+    threads =
+      2.times.map do
+        Thread.new do
+          model = Glpk.read_lp("test/support/test.lp")
+          model.solve
+          model.free
+        end
+      end
+    threads.map(&:join)
+  end
 end

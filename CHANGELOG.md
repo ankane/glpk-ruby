@@ -1,5 +1,6 @@
 ## 0.2.1 (unreleased)
 
+- Added `free` method
 - Improved support for Mac ARM
 - Fixed error with `dup` and `clone`
 

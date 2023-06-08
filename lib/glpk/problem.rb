@@ -5,6 +5,12 @@ module Glpk
       @model.free = FFI["glp_delete_prob"]
     end
 
+    def free
+      model.free = nil
+      FFI.glp_delete_prob(model)
+      @model = nil
+    end
+
     def load_problem(obj_dir:, obj_coef:, mat_ia:, mat_ja:, mat_ar:, col_kind:, col_lower:, col_upper:, row_lower:, row_upper:)
       num_cols = col_lower.size
       num_rows = row_lower.size
@@ -76,6 +82,7 @@ module Glpk
     private
 
     def model
+      raise Error, "Model already freed" unless @model
       @model
     end
 
