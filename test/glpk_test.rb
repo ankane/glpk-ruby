@@ -96,7 +96,7 @@ class GlpkTest < Minitest::Test
     error = assert_raises(Glpk::Error) do
       model.solve
     end
-    assert_equal "Model already freed", error.message
+    assert_equal "can't use freed problem", error.message
   end
 
   def test_threads

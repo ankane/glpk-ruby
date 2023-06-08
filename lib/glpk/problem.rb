@@ -82,7 +82,7 @@ module Glpk
     private
 
     def model
-      raise Error, "Model already freed" unless @model
+      raise Error, "can't use freed problem" unless @model
       @model
     end
 
