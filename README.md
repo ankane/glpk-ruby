@@ -76,7 +76,7 @@ problem = Glpk.read_lp("hello.lp")
 problem = Glpk.read_mps("hello.mps")
 ```
 
-Free the problem (only required in multi-threaded environments) [unreleased]
+Free the problem (required in multi-threaded environments)
 
 ```ruby
 problem.free
