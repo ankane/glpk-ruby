@@ -100,6 +100,8 @@ class GlpkTest < Minitest::Test
   end
 
   def test_threads
+    GC.start # for previous tests
+
     threads =
       2.times.map do
         Thread.new do
