@@ -123,7 +123,7 @@ module Glpk
         row_primal: num_rows.times.map { |i| FFI.glp_get_row_prim(model, i + 1) },
         col_primal: num_cols.times.map { |i| FFI.glp_get_col_prim(model, i + 1) },
         row_dual: num_rows.times.map { |i| FFI.glp_get_row_dual(model, i + 1) },
-        col_dual: num_cols.times.map { |i| FFI.glp_get_col_dual(model, i + 1) },
+        col_dual: num_cols.times.map { |i| FFI.glp_get_col_dual(model, i + 1) }
       }
     end
 
