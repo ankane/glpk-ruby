@@ -19,7 +19,7 @@ module Glpk
       if RbConfig::CONFIG["host_cpu"] =~ /arm|aarch64/i
         ["libglpk.dylib", "/opt/homebrew/lib/libglpk.dylib"]
       else
-        ["libglpk.dylib"]
+        ["libglpk.dylib", "/usr/local/lib/libglpk.dylib"]
       end
     else
       ["libglpk.so", "libglpk.so.40"]
