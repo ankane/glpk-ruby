@@ -56,19 +56,19 @@ module Glpk
     end
 
     def read_lp(filename)
-      check_status FFI.glp_read_lp(model, nil, filename)
+      check_status FFI.glp_read_lp(model, nil, +filename)
     end
 
     def read_mps(filename)
-      check_status FFI.glp_read_mps(model, 2, nil, filename)
+      check_status FFI.glp_read_mps(model, 2, nil, +filename)
     end
 
     def write_lp(filename)
-      check_status FFI.glp_write_lp(model, nil, filename)
+      check_status FFI.glp_write_lp(model, nil, +filename)
     end
 
     def write_mps(filename)
-      check_status FFI.glp_write_mps(model, 2, nil, filename)
+      check_status FFI.glp_write_mps(model, 2, nil, +filename)
     end
 
     def solve(**options)
