@@ -150,7 +150,7 @@ module Glpk
     end
 
     def solve_simplex(message_level:, time_limit:)
-      param = FFI::Smcp.malloc
+      param = FFI::Smcp.malloc(Fiddle::RUBY_FREE)
       FFI.glp_init_smcp(param)
       param.msg_lev = message_level
       param.tm_lim = (time_limit * 1000).ceil if time_limit
@@ -158,7 +158,7 @@ module Glpk
     end
 
     def solve_intopt(message_level:, time_limit:)
-      param = FFI::Iocp.malloc
+      param = FFI::Iocp.malloc(Fiddle::RUBY_FREE)
       FFI.glp_init_iocp(param)
       param.msg_lev = message_level
       param.tm_lim = (time_limit * 1000).ceil if time_limit
