@@ -108,6 +108,11 @@ class GlpkTest < Minitest::Test
           model = Glpk.read_lp("test/support/test.lp")
           model.solve
           model.free
+
+          if valgrind?
+            GC.start
+            Glpk::FFI.glp_free_env
+          end
         end
       end
     threads.map(&:join)

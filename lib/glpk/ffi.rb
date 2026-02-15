@@ -135,6 +135,9 @@ module Glpk
     # version info
     extern "char *glp_version(void)"
 
+    # env
+    extern "int glp_free_env(void)"
+
     # read and write
     extern "void glp_init_mpscp(glp_mpscp *parm)"
     extern "int glp_read_mps(glp_prob *P, int fmt, glp_mpscp *parm, char *fname)"

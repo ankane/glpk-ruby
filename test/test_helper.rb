@@ -18,6 +18,10 @@ class Minitest::Test
     ENV["STRESS"]
   end
 
+  def valgrind?
+    ENV["RUBY_MEMCHECK_RUNNING"]
+  end
+
   def assert_elements_in_delta(expected, actual)
     assert_equal expected.size, actual.size
     expected.zip(actual) do |exp, act|
