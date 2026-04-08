@@ -6,8 +6,7 @@ module Glpk
     end
 
     def free
-      model.free = nil
-      FFI.glp_delete_prob(model)
+      model.call_free
       @model = nil
     end
 
