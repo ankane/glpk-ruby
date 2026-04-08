@@ -6,9 +6,9 @@ module Glpk
     end
 
     def free
-      model.free = nil
-      FFI.glp_delete_prob(model)
+      model = self.model
       @model = nil
+      model.call_free
     end
 
     def load_problem(obj_dir:, obj_coef:, mat_ia:, mat_ja:, mat_ar:, col_kind:, col_lower:, col_upper:, row_lower:, row_upper:)
